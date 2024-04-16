@@ -39,10 +39,7 @@
             this.labelY2 = new System.Windows.Forms.Label();
             this.buttonColor = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.lineWidthLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxX1
@@ -120,7 +117,7 @@
             // 
             // buttonColor
             // 
-            this.buttonColor.Location = new System.Drawing.Point(579, 189);
+            this.buttonColor.Location = new System.Drawing.Point(580, 121);
             this.buttonColor.Name = "buttonColor";
             this.buttonColor.Size = new System.Drawing.Size(105, 52);
             this.buttonColor.TabIndex = 9;
@@ -139,30 +136,11 @@
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
             // 
-            // trackBar1
-            // 
-            this.trackBar1.Location = new System.Drawing.Point(490, 103);
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(295, 56);
-            this.trackBar1.TabIndex = 12;
-            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
-            // 
-            // lineWidthLabel
-            // 
-            this.lineWidthLabel.AutoSize = true;
-            this.lineWidthLabel.Location = new System.Drawing.Point(565, 143);
-            this.lineWidthLabel.Name = "lineWidthLabel";
-            this.lineWidthLabel.Size = new System.Drawing.Size(135, 16);
-            this.lineWidthLabel.TabIndex = 13;
-            this.lineWidthLabel.Text = "Толщина отрезка: 1";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lineWidthLabel);
-            this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonColor);
             this.Controls.Add(this.labelY2);
@@ -177,7 +155,6 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,8 +173,6 @@
         private System.Windows.Forms.Label labelY2;
         private System.Windows.Forms.Button buttonColor;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TrackBar trackBar1;
-        private System.Windows.Forms.Label lineWidthLabel;
     }
 }
 

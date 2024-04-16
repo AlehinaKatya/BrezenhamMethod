@@ -10,7 +10,6 @@ namespace Метод_Брезенхема
     {
         private int x1, y1, x2, y2;
         private Color lineColor = Color.Black;
-        private float lineWidth = 1;
 
         public Form1()
         {
@@ -18,9 +17,6 @@ namespace Метод_Брезенхема
             Bitmap bmp = new Bitmap(pictureBox1.Width, pictureBox1.Height);
             Graphics g = Graphics.FromImage(bmp);
             pictureBox1.Image = bmp;
-
-            trackBar1.Minimum = 1;
-            trackBar1.Value = 1;
         }
 
         private void Form1_Load(object sender, EventArgs e) {}
@@ -33,14 +29,6 @@ namespace Метод_Брезенхема
         {
             Graphics g = e.Graphics;
             DrawLineBresenham(g, x1, y1, x2, y2, lineColor);
-        }
-
-        private void trackBar1_Scroll(object sender, EventArgs e)
-        {
-            lineWidth = trackBar1.Value;
-            lineWidthLabel.Text = $"Толщина отрезка: {lineWidth}";
-
-            pictureBox1.Invalidate();
         }
 
         private void textBoxX1_TextChanged(object sender, EventArgs e)
@@ -147,29 +135,29 @@ namespace Метод_Брезенхема
 
         private void DrawLineBresenham(Graphics g, int x1, int y1, int x2, int y2, Color color)
         {
-            int dx = Math.Abs(x2 - x1);
-            int dy = Math.Abs(y2 - y1);
-            int sx = x1 < x2 ? 1 : -1;
-            int sy = y1 < y2 ? 1 : -1;
-            int err = dx - dy;
+            int dx = Math.Abs(x2 - x1); // разница между x1 и x2 (разница по x)
+            int dy = Math.Abs(y2 - y1); // разница между y1 и y2 (разница по y)
+            int sx = x1 < x2 ? 1 : -1; // шаг по оси x (направление движения — вправо или влево)
+            int sy = y1 < y2 ? 1 : -1; // шаг по оси y (направление движения — вверх или вниз)
+            int err = dx - dy; // ошибка
 
             while (true)
             {
-                g.FillRectangle(new SolidBrush(color), x1, y1, (int)lineWidth, (int)lineWidth);
+                g.FillRectangle(new SolidBrush(color), x1, y1, 1, 1); // закрашиваем
 
-                if (x1 == x2 && y1 == y2)
+                if (x1 == x2 && y1 == y2) // проверяем не достигли ли мы точки конца отрезка
                     break;
 
                 int err2 = 2 * err;
-                if (err2 > -dy)
+                if (err2 > -dy) // проверяем надо ли перемещаться по оси x
                 {
-                    err -= dy;
-                    x1 += sx;
+                    err -= dy; // уменьшаем ошибку по y
+                    x1 += sx; // двигаемся по x
                 }
-                if (err2 < dx)
+                if (err2 < dx) // проверяем надо ли перемещаться по оси y
                 {
-                    err += dx;
-                    y1 += sy;
+                    err += dx; // увеличиваем ошибку по x
+                    y1 += sy; // двигаемся по y
                 }
             }
         }
